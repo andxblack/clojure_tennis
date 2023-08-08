@@ -1,4 +1,4 @@
-(ns tennis
+(ns elo
   (:require [tech.v3.dataset :as ds]
             [tablecloth.api :as tc]
             [tech.v3.datatype.datetime :as dtype-dt]))
