@@ -240,7 +240,7 @@
   )
 
 (defn extract-player-elo
-  "Once elos are calculated extract data for specific players for plotting"
+  "Once elos are calculated, extract data for specific players for plotting"
   [ds-with-elo player-id]
   (->
     (tc/select-rows ds-with-elo (player? player-id))
@@ -256,7 +256,6 @@
     (tc/select-columns [:tourney_date :elo])
     ; append new col of player id now we have got rid of others.
     (tc/add-column :player_id player-id)
-    (tc/add-column :player_name ())
     )
   )
 
@@ -267,7 +266,7 @@
 
   (def bigger (time (load-match-data 1990 2005)))
   (def elo-tab (calc-elos bigger))
-  ; extract data for a few players and plot it out.
+  ; extract data for Tommy Hass
   (def tommy (extract-player-elo elo-tab 103163))
 
   (tc/head tommy)
